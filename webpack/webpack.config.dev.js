@@ -8,6 +8,12 @@ module.exports = {
     'webpack/hot/only-dev-server',
     resolve(__dirname, 'hotReload'),
   ],
+  resolve: {
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
+  },
   output: {
     filename: 'bundle.js',
     path: resolve(__dirname),

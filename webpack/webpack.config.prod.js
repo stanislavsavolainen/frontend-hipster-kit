@@ -7,14 +7,20 @@ module.exports = {
   entry: {
     main: resolve(__dirname, '../src'),
     vendor: [
-      'react',
-      'react-dom',
+      'preact',
+      'preact-compat',
       'react-redux',
       'react-router-dom',
       'redux',
       'redux-thunk',
       'styled-components',
     ],
+  },
+  resolve: {
+    alias: {
+      react: 'preact-compat',
+      'react-dom': 'preact-compat',
+    },
   },
   output: {
     filename: '[name].[chunkhash].js',
@@ -25,7 +31,10 @@ module.exports = {
     rules: [
       {
         test: /\.(js|jsx)$/,
-        include: [resolve(__dirname, '../src')],
+        include: [
+          resolve(__dirname, '../src'),
+          resolve('node_modules/preact-compat/src'),
+        ],
         use: 'babel-loader',
       },
     ],

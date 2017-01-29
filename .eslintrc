@@ -5,6 +5,13 @@
   },
   "extends": "airbnb",
   "parser": "babel-eslint",
+  "settings": {
+    "import/resolver": {
+      "webpack": {
+          "config": "webpack/webpack.config.dev.js",
+        },
+      },
+  },
   "rules": {
     "no-confusing-arrow": 0,
     "no-shadow": 0,
@@ -12,6 +19,7 @@
     "semi": [1, "never"],
     "import/no-extraneous-dependencies": 0,
     "import/prefer-default-export": 0,
+    "import/no-duplicates": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
   }
 }
