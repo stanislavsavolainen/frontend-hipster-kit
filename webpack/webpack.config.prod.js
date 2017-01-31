@@ -9,7 +9,7 @@ module.exports = {
     vendor: [
       'preact',
       'preact-compat',
-      'react-redux',
+      'preact-redux',
       'react-router-dom',
       'redux',
       'redux-thunk',
@@ -18,6 +18,7 @@ module.exports = {
   },
   resolve: {
     alias: {
+      'react-redux': 'preact-redux',
       react: 'preact-compat',
       'react-dom': 'preact-compat',
     },
