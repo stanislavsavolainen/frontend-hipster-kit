@@ -77,8 +77,10 @@ class Luokka3 extends React.Component {
 
                 } //onChange
 
-                floatingLabelText="Fixed Floating Label Text"
-                floatingLabelFixed={true} > </TextField> </div>);
+               // floatingLabelText="Fixed Floating Label Text"
+               // floatingLabelFixed={true} 
+               ></TextField>
+                </div>);
 
 
 

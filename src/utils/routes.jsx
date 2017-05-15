@@ -43,7 +43,10 @@ import MyProfiles_A from '../modules/MyProfiles1'; // ******* oma ********
 import Oma_luokka1 from '../my_modules1/MyTest1';
 import Oma_luokka2 from '../my_modules1/MyTest2';
 import Oma_luokka3 from '../my_modules1/MyTest3';
+import Oma_luokka4 from '../my_modules1/MyTest4';
 
+
+// https://material.io/icons/
 
 
 // Routes
@@ -102,7 +105,7 @@ const routeConfigs = [{
   path: '/TestiLuokka2', //linkki minne sivulle käyttäjä siiirtyy
   name: 'Linkki TestiLuokka2', //nagivointi palkissa linkin nimi
   component: Oma_luokka2, //muuttuja esitetään importissa
-  icon: 'exit_to_app', // icon - kuva voi valita luettelosta
+  icon: 'shop', // icon - kuva voi valita luettelosta
   requiresLogin: false,
 },
 //Material-UI testi 2
@@ -110,9 +113,18 @@ const routeConfigs = [{
   path: '/TestiLuokka3', //linkki minne sivulle käyttäjä siiirtyy
   name: 'Linkki TestiLuokka3', //nagivointi palkissa linkin nimi
   component: Oma_luokka3, //muuttuja esitetään importissa
-  icon: 'supervisor_account', // icon - kuva voi valita luettelosta
+  icon: 'account_balance', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+//Material-Ui testi 3
+{
+  path: '/TestiLuokka4', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka4', //nagivointi palkissa linkin nimi
+  component: Oma_luokka4, //muuttuja esitetään importissa
+  icon: 'stars', // icon - kuva voi valita luettelosta
   requiresLogin: false,
 }
+
 
 
 ];
