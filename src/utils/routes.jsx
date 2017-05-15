@@ -38,6 +38,14 @@ import Preferences from '../modules/Preferences';
 import Login from '../modules/Login';
 import Logout from '../modules/Logout';
 
+import MyProfiles_A from '../modules/MyProfiles1'; // ******* oma ********
+
+import Oma_luokka1 from '../my_modules1/MyTest1';
+import Oma_luokka2 from '../my_modules1/MyTest2';
+import Oma_luokka3 from '../my_modules1/MyTest3';
+
+
+
 // Routes
 const routeConfigs = [{
   path: '/home',
@@ -72,7 +80,42 @@ const routeConfigs = [{
   icon: 'exit_to_app',
   requiresLogin: false,
   hideWhenScope: [null],
-}];
+},
+ //oma route "MyProfiles1.jsx"
+ {
+  path: '/MyProfiles22', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'myProfiles', //nagivointi palkissa linkin nimi
+  component: MyProfiles_A, //muuttuja esitetään importissa
+  icon: 'account_circle', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+}, 
+// oma luokan esitys, mutta oma hakemisto ja oma React-luokka
+ {
+  path: '/TestiLuokka1', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka1', //nagivointi palkissa linkin nimi
+  component: Oma_luokka1, //muuttuja esitetään importissa
+  icon: 'settings', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+//oma luokka + Material-UI
+{
+  path: '/TestiLuokka2', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka2', //nagivointi palkissa linkin nimi
+  component: Oma_luokka2, //muuttuja esitetään importissa
+  icon: 'exit_to_app', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+//Material-UI testi 2
+{
+  path: '/TestiLuokka3', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka3', //nagivointi palkissa linkin nimi
+  component: Oma_luokka3, //muuttuja esitetään importissa
+  icon: 'supervisor_account', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+}
+
+
+];
 
 export default routeConfigs;
 
