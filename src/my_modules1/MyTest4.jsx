@@ -1,12 +1,15 @@
 
 import React from 'react';
 
+//material-ui component
 import Button from 'material-ui/Button';
 import TextField from 'material-ui/TextField';
 
+//material-ui layout
 import CardWrapper from '../components/CardWrapper';
 import ResponsiveCard from '../components/ResponsiveCard';
 import { CardActions, CardHeader, CardContent } from 'material-ui/Card';
+
 
 
 class Luokka4 extends React.Component {
@@ -36,7 +39,7 @@ class Luokka4 extends React.Component {
         return (
             <div>
 
-                <CardWrapper >
+                <CardWrapper>
                     <CardContent>
                         {ui_kentta}
                     </CardContent>
@@ -46,7 +49,7 @@ class Luokka4 extends React.Component {
                     </CardContent>
                 </CardWrapper>
 
-                <CardWrapper >
+                <CardWrapper>
                     <CardContent>
                         {ui_kentta}
                     </CardContent>
@@ -55,8 +58,6 @@ class Luokka4 extends React.Component {
                         {ui_nappi_a}
                     </CardContent>
                 </CardWrapper>
-
-
 
             </div>
         );

@@ -44,6 +44,20 @@ import Oma_luokka1 from '../my_modules1/MyTest1';
 import Oma_luokka2 from '../my_modules1/MyTest2';
 import Oma_luokka3 from '../my_modules1/MyTest3';
 import Oma_luokka4 from '../my_modules1/MyTest4';
+import Oma_luokka5 from '../my_modules1/MyTest5';
+
+
+/*
+
+//Testi ei toteutusta
+
+const luokka_taulukko = [ { arvo: '/my_modules1/MyTest1' , tieto: '' }];
+
+import Oma_luokkaA from ['','',''] ;
+
+import Oma_luokkaA from luokka_taulukko[0].arvo;    
+*/
+
 
 
 // https://material.io/icons/
@@ -122,6 +136,14 @@ const routeConfigs = [{
   name: 'Linkki TestiLuokka4', //nagivointi palkissa linkin nimi
   component: Oma_luokka4, //muuttuja esitetään importissa
   icon: 'stars', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+//
+{
+  path: '/TestiLuokka5', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka5', //nagivointi palkissa linkin nimi
+  component: Oma_luokka5, //muuttuja esitetään importissa
+  icon: 'backup', // icon - kuva voi valita luettelosta
   requiresLogin: false,
 }
 
