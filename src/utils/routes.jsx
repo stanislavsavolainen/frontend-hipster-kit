@@ -45,7 +45,7 @@ import Oma_luokka2 from '../my_modules1/MyTest2';
 import Oma_luokka3 from '../my_modules1/MyTest3';
 import Oma_luokka4 from '../my_modules1/MyTest4';
 import Oma_luokka5 from '../my_modules1/MyTest5';
-
+import Oma_luokka6 from '../my_modules1/MyTest6';
 
 /*
 
@@ -145,6 +145,13 @@ const routeConfigs = [{
   component: Oma_luokka5, //muuttuja esitetään importissa
   icon: 'backup', // icon - kuva voi valita luettelosta
   requiresLogin: false,
+},
+{
+  path: '/TestiLuokka6', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka6', //nagivointi palkissa linkin nimi
+  component: Oma_luokka6, //muuttuja esitetään importissa
+  icon: 'backup', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
 }
 
 
@@ -183,7 +190,7 @@ let AuthRedirectRoute = ({ loggedIn, routeConfig, ...rest }) => (
       />
     ) : (
       <div>
-        { React.createElement(routeConfig.component, props) }
+        { React.createElement(routeConfig.component, props) } 
       </div>
     )
   )}
