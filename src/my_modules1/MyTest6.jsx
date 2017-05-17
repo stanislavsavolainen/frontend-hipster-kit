@@ -99,6 +99,23 @@ class Luokka6 extends React.Component {
 
 
     //------------------------------------
+
+    tallenna_json_tiedosto() {
+
+        console.log("Tallennus !");
+
+        var json_merkkijono = JSON.stringify(this.state.data);
+
+        var file = new Blob([json_merkkijono], { type: "text/plain" });
+
+        //tee linkki tiedostoon ---> luo tallennusnimen tiedoston tallentamista varten
+        a.href = URL.createObjectURL(file);
+        a.download = "tieto.json"  // lue tiedoston nimi
+
+    }
+
+
+    //------------------------------------
     render() {
 
         let solut_tyyli = { backgroundColor: '#708090', fontSize: 18, color: 'blue' }
@@ -152,7 +169,11 @@ class Luokka6 extends React.Component {
         let ui_muokkaus = null;
 
 
-        // esim table elementeillä  <table>  data.map ... <tr><td>1</td><td>2</td> </tr>  </talbe>
+        //------------ nappi joka tallentaa JSON tiedoston -----------------
+
+        let ui_nappi_tallenna_json = (<Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick={() => this.tallenna_json_tiedosto()} > Tallenna JSON-tiedosto </Button>);
+
+        // esim table elementeillä  <table>  data.map ... <tr><td>1</td><td>2</td> </tr>  </table>
 
 
 
@@ -264,7 +285,7 @@ class Luokka6 extends React.Component {
         }
 
 
-        return <div> <br /><br /> {koko_taulu} {ui_komponentti_layout} </div>;
+        return <div> {ui_nappi_tallenna_json} <br /> <div> <a href="#" id="a"> Tallenna data </a> </div> <br /> <br /> {koko_taulu} {ui_komponentti_layout} </div>;
 
         //return <div> 123 </div>;
 
