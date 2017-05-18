@@ -47,6 +47,7 @@ import Oma_luokka4 from '../my_modules1/MyTest4';
 import Oma_luokka5 from '../my_modules1/MyTest5';
 import Oma_luokka6 from '../my_modules1/MyTest6';
 import Oma_luokka7 from '../my_modules1/MyTest7';
+import Oma_luokka8 from '../my_modules1/MyTest8';
 
 /*
 
@@ -160,7 +161,15 @@ const routeConfigs = [{
   component: Oma_luokka7, //muuttuja esitetään importissa
   icon: 'pan_tool', // icon - kuva voi valita luettelosta
   requiresLogin: false,
+},
+{
+  path: '/TestiLuokka8', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki TestiLuokka8', //nagivointi palkissa linkin nimi
+  component: Oma_luokka8, //muuttuja esitetään importissa
+  icon: 'pan_tool', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
 }
+
 
 
 ];
