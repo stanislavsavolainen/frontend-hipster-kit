@@ -34,7 +34,7 @@ import { CardActions, CardHeader, CardContent } from 'material-ui/Card';
 
 //let counter = 0;
 
-class Luokka6 extends React.Component {
+class Luokka6B extends React.Component {
 
     uusiElementti(indeksi, nimi, arvo, kuvaus) {
 
@@ -62,7 +62,12 @@ class Luokka6 extends React.Component {
             muokkaus_vain_kerran: false,
             muokkaus_indeksi: 0,
             muokkaus_kentta_arvo: "",
-            tietoje_lukumaara_enintaan: 16  //kuinka monta elementtiä voi enintään olla taulukossa
+            tietoje_lukumaara_enintaan: 16000,  //kuinka monta elementtiä voi enintään olla taulukossa
+            //palvelimen state
+            palvelin_url: "http://localhost:8081",
+            palvelin_komento: "/save_profiles1",
+            palvelin_komentoB: "/read_profiles1"
+
         }
     }
 
@@ -120,6 +125,62 @@ class Luokka6 extends React.Component {
 
     }
 
+    //------------------------------------
+
+    lahetaPalvelimelle() {
+
+        let post_json_muuttujaA = { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(this.state.data) };
+
+        console.log("Palvelimelle =====> " + JSON.stringify(this.state.data)) ;
+
+        fetch( (this.state.palvelin_url + this.state.palvelin_komento) , post_json_muuttujaA ).then((resp) => {
+            //console.log( "Fetch on aloitettu !" ); // tämä viesti ei näy ---> ei näy catch lohkossa, näkyy vain ennen return komentoa, mutta aiheuttaa virhettä tässä kohdassa (häiritse JSON palautusta)
+            return resp.json();
+        }).then((r) => {
+            console.log("Fetch on suoritettu !"); //tulostetaan aina kun sivu on löytynyt
+           
+            //*********************************************************************** */
+            //käyttäjä näkee muutokset , jos palvelin vastaa
+
+        }).catch((err) => {
+            console.log("Sivua ei löytynyt suorita virhe poikkeus tänne !");
+            console.log("ERR", err);
+        })
+
+
+    }
+
+
+    //-------------------------------------
+
+    luePalvelmelta(){
+
+        console.log("Lue palvelin datan ! ");
+
+        let t_data = ["1"];
+
+         let post_json_muuttujaB = { method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' }, body: JSON.stringify(t_data) };
+
+         fetch( (this.state.palvelin_url + this.state.palvelin_komentoB) , post_json_muuttujaB ).then((resp) => {
+             return resp.json();
+        }).then((r) => {
+            console.log("Fetch on suoritettu !"); //tulostetaan aina kun sivu on löytynyt
+           
+            //*********************************************************************** */
+            //käyttäjä näkee muutokset , jos palvelin vastaa
+            console.log("Palvelin antaa kun tehdään read - komento : " + r);
+            this.state.data = JSON.parse(r);
+            
+            this.setState(this.state);
+
+
+        }).catch((err) => {
+            console.log("Sivua ei löytynyt suorita virhe poikkeus tänne !");
+            console.log("ERR", err);
+        })
+
+
+    }
 
     //------------------------------------
 
@@ -127,7 +188,7 @@ class Luokka6 extends React.Component {
 
         console.log("Lataus");
 
-       // this.setState(this.state);
+        // this.setState(this.state);
 
         var reader = new FileReader();
         reader.onload = () => {
@@ -149,7 +210,7 @@ class Luokka6 extends React.Component {
     //------------------------------------
     render() {
 
-        let solut_tyyli = { backgroundColor: '#708090', fontSize: 18, color: 'blue' }
+        let solut_tyyli = { backgroundColor: '#708090', fontSize: 18, color: 'purple' }
         let muokkaus_tyyli = { backgroundColor: '#708090', fontSize: 18, color: 'red' }
 
 
@@ -160,7 +221,7 @@ class Luokka6 extends React.Component {
         );
         //--------------- nappi -------------------------------------
         let ui_nappi = (
-            <Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick={() => this.uusi_tieto()}  > Uusi elementti </Button>
+            <Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'purple' }} onClick={() => this.uusi_tieto()}  > Uusi elementti </Button>
         );
 
         // ------------- radio buttons -------------------------------
@@ -200,41 +261,19 @@ class Luokka6 extends React.Component {
         let ui_muokkaus = null;
 
 
-        //------------ nappi joka tallentaa JSON tiedoston -----------------
 
-        let ui_nappi_tallenna_json = (<Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick={() => this.tallenna_json_tiedosto()} > Tallenna JSON-tiedosto </Button>);
+        //------------ lähetä palvelimelle ---------------------------------
+
+        let ui_laheta_palvelimelle = (<Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick={() => this.lahetaPalvelimelle()} > Lähetä palvelimelle </Button>);
+
+      
+
+        //------------ lue palvelimelta ------------------------------------
+
+        let ui_lue_palvelimelta = (<Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick={() => this.luePalvelmelta() } > Hae palvelimelta </Button>);
+
 
         // esim table elementeillä  <table>  data.map ... <tr><td>1</td><td>2</td> </tr>  </table>
-
-
-
-        //------------- nappi joka avaa JSON tiedoston --------------
-
-        //onChange={(tapahtuma) => this.lueTiedosto(tapahtuma)} />
-
-        //let ui_kentta_lukee_json = ( <TextField   style={{ backgroundColor: 'silver' }} onChange={ () => this.lataa_json_tiedosto() } > dasd  </TextField>);
-
-        // let ui_nappi_lukee_json = ( <Button style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onChange = {(tapahtuma) => this.lataa_json_tiedosto(tapahtuma)} > Avaa JSON </Button>)
-
-        // let ui_nappi_lukee_json = ( <Button> <input type="file" style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onChange = {(tapahtuma) => this.lataa_json_tiedosto(tapahtuma)} value="Avaa JSON" />  </Button>);
-
-        /*
-        let ui_nappi_lukee_json = ( 
-        <Button label="Choose file" labelPosition="before">
-             <input type="file" style={{ backgroundColor: 'silver', fontSize: 24, color: 'blue' }} onClick = {(tapahtuma) => this.tapahtuma.lataa_json_tiedosto(tapahtuma)} value="Avaa JSON" />
-         </Button>
-        );
-        */
-        let ui_nappi_lukee_json = (
-            <Button
-                containerElement='label' // <-- Just add me!
-                label='My Label'
-                onClick = { (e) => this.lataa_json_tiedosto(e.target.value)}  //  onClick = { (e) => this.lataa_json_tiedosto() }
-                >
-                <input type="file"   />
-                Lataa JSON
-            </Button>
-        );
 
 
         //---------------- muokkauksen tulostus ---------------------
@@ -265,7 +304,7 @@ class Luokka6 extends React.Component {
             //suorittaa poikkeuksen ja lisää ylimääräisen solu rivin muokattun datan jälkeen, mutta ennen seuraava solurivin elementtiä
             if (this.state.muokkaus_vain_kerran && indeksi === this.state.muokkaus_indeksi) {
                 muokkaus_arvo = ui_muokkaus;
-               // this.state.muokkaus_vain_kerran = false;
+                // this.state.muokkaus_vain_kerran = false;
             }
 
             //taulukko jossa 2 arvoa, ensimmäinen on taulukko data ja toinen on poikkeus muokkamista varten (soritetaan vain yhdelle elementille kerralaan)
@@ -308,7 +347,7 @@ class Luokka6 extends React.Component {
 
         //laske datan määrä
         if (this.state.data.length < this.state.tietoje_lukumaara_enintaan) {
-           
+
             ui_komponentti_layout = (
                 <div>
                     <CardWrapper>
@@ -344,7 +383,7 @@ class Luokka6 extends React.Component {
 
         ///{ui_nappi_lukee_json} 
 
-        return <div> {ui_nappi_tallenna_json} {ui_nappi_lukee_json}  <br /> <div> <a href="#" id="a"> Tallenna data </a> </div> <br /> <br /> {koko_taulu} {ui_komponentti_layout} </div>;
+        return <div> <h1> Advanced testi ! </h1> {ui_laheta_palvelimelle} {ui_lue_palvelimelta}  <br /> <br /> <br /> {koko_taulu} {ui_komponentti_layout} </div>;
 
         //return <div> 123 </div>;
 
@@ -353,5 +392,5 @@ class Luokka6 extends React.Component {
 
 }
 
-export default Luokka6;
+export default Luokka6B;
 

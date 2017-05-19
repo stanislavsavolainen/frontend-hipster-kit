@@ -60,7 +60,7 @@
     "jss": "^6.3.0",
     "jwt-decode": "^2.1.0",
     "lodash": "^4.17.4",
-    "material-ui": "1.0.0-alpha.14",
+    "material-ui": "1.0.0-alpha.6",
     "npm-install-version": "^6.0.1",
     "offline-plugin": "^4.5.5",
     "react": "^15.4.1",

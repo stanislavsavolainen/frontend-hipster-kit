@@ -1,8 +1,9 @@
 import React from 'react';
 
-import Grid from 'material-ui/Grid';
+import Layout from 'material-ui/Layout';
 
 import Button from 'material-ui/Button';
+import Slider from 'material-ui-old/Slider';
 
 import Table, {
     TableBody,
@@ -11,6 +12,7 @@ import Table, {
     TableRow,
     TableSortLabel,
 } from 'material-ui/Table';
+
 
 class Luokka8 extends React.Component {
 
@@ -36,15 +38,24 @@ class Luokka8 extends React.Component {
         let taulukko_layout = (<Table style={{ maxWidth: 360, borderStyle: 'solid', borderWidth: 5, borderColor: 'green' }} ><TableBody>{taulun_solut}</TableBody></Table>);
 
         let ui_grid = (
-            <Grid container >
-                <Grid item xs="12">
-                    <Grid container justify="center" >
-                        <Grid item>
-                            <Button>123</Button>
-                        </Grid>
-                    </Grid>
-                </Grid>
-            </Grid>
+            <Layout container >
+                <Layout item xs="12">
+                    <Layout container justify="center" >
+                        <Layout item><Button>123457</Button></Layout>
+                        <Layout item><Button>123</Button></Layout>
+                        <Layout item><Button>123</Button></Layout>
+                        <Layout item><Button>123</Button></Layout>
+                    </Layout>
+                </Layout>
+                <Layout item xs="12">
+                    <Layout container justify="center" >
+                        <Layout item><Button>123</Button></Layout>
+                        <Layout item><Button>123</Button></Layout>
+                        <Layout item><Button> <Slider style={{ maxWidth: 360, fontSize: 18,  backgroundColor: 'white', color: 'green' }}  /></Button></Layout>
+                        <Layout item><Button>123</Button></Layout>
+                    </Layout>
+                </Layout>
+            </Layout>
         );
 
         return (
@@ -64,10 +75,13 @@ class Luokka8 extends React.Component {
                     <TableRow> </TableRow>
                     </TableBody> 
                 </Table>
-            </div>);
+            </div>
             */
-
-            <div></div>)
+            
+            <div> 
+                <Slider style={{ maxWidth: 360, fontSize: 18,  backgroundColor: 'white', color: 'green' }}  />
+                {ui_grid} 
+            </div>)
     }
 
     //------------------------------------------------------------------
