@@ -38,9 +38,9 @@ class Luokka8 extends React.Component {
         let taulukko_layout = (<Table style={{ maxWidth: 360, borderStyle: 'solid', borderWidth: 5, borderColor: 'green' }} ><TableBody>{taulun_solut}</TableBody></Table>);
 
         let ui_grid = (
-            <Layout container >
+            <Layout container>
                 <Layout item xs="12">
-                    <Layout container justify="center" >
+                    <Layout container justify="right" >
                         <Layout item><Button>123457</Button></Layout>
                         <Layout item><Button>123</Button></Layout>
                         <Layout item><Button>123</Button></Layout>

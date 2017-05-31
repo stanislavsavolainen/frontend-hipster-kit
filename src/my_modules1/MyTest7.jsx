@@ -62,7 +62,6 @@ class Luokka7 extends React.Component {
         //  this.setTimeout( () => { console.log('I do not leak!'); }, 5000 );
 
 
-
         //console.log("Ajastuksen ulkopuolella");
 
         return <p>  {this.state.linebreak} {this.state.taulukko} <Button style={{ backgroundColor: 'orange', fontSize: 24, color: 'green' }} onClick={() => this.tee_jotain_muuta()}> Paina nappia {this.state.ajastin}  </Button></p>

@@ -46,6 +46,26 @@ class Luokka3 extends React.Component {
 
         console.log("Nappi painettu, kenttän arvo on : " + this.state.apuObjekti.state.tx_arvo);
 
+        let palvelin_url = "http://localhost:8089/hello";
+
+        //fetch komento NodeJS hapi-moduulia varten
+               fetch(palvelin_url).then((resp) => {
+             //console.log( "Fetch on aloitettu !" ); // tämä viesti ei näy ---> ei näy catch lohkossa, näkyy vain ennen return komentoa, mutta aiheuttaa virhettä tässä kohdassa (häiritse JSON palautusta)
+            return resp.json();
+        }).then((r) => {
+            console.log("Fetch on suoritettu !"); //tulostetaan aina kun sivu on löytynyt
+            console.log("R", r.body, r.test);
+
+            console.log("Palvelin data (NodeJS + hapi-moduuli )  :" +r);
+
+            this.setState({ test: r.body });
+        }).catch((err) => {
+            console.log("Sivua ei löytynyt suorita virhe poikkeus tänne !");
+         //   this.setState({ error: true, errorMsg: "poop" });
+            console.log("ERR", err);
+})
+
+
     }
 
     //--------------------------------------------------------------------------------
@@ -86,7 +106,7 @@ class Luokka3 extends React.Component {
 
         let ui_nappi = (
             <div>
-                <Button onClick = { () => this.nappiPainettu()  }> Paina Nappia </Button>
+                <Button onClick = { () => this.nappiPainettu()  } style={{ backgroundColor: 'orange', fontSize: 24, color: 'green' }} > Paina Nappia </Button>
             </div>
         );
 

@@ -56,7 +56,7 @@ class Luokka6B extends React.Component {
             ],
 
             header_data: [{ id: "id" }, { nimi: "nimi" }, { arvo: "arvo" }, { kuvaus: "kuvaus" }],
-            kentta_arvo: "",
+            kentta_arvo: "tyhjä",
             tx_radio: "",
             muokkaus: false,
             muokkaus_vain_kerran: false,
@@ -216,8 +216,15 @@ class Luokka6B extends React.Component {
 
         //--------------- tekstikenttä ------------------------------
         let ui_tekstikentta = (
-            <TextField style={{ backgroundColor: 'silver', fontSize: 24 }}
-                onChange={(tekstikentta_tapahtuma) => this.state.kentta_arvo = tekstikentta_tapahtuma.target.value} > </TextField>
+            <TextField 
+                id="asd"
+                style={{ backgroundColor: 'silver', fontSize: 24 }} 
+                label="Otsikko teksti"
+                value={this.state.kentta_arvo}
+                onChange={(tekstikentta_tapahtuma) => {
+                    this.state.kentta_arvo = tekstikentta_tapahtuma.target.value;
+                    this.setState(this.state);
+                }} />
         );
         //--------------- nappi -------------------------------------
         let ui_nappi = (
