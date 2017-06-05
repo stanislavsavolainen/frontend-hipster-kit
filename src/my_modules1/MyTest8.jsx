@@ -97,7 +97,7 @@ class Luokka8 extends React.Component {
 
 
 
-        return (<p> {this.piira_ohjain_ui()}</p>);
+        return (<p> <div style={{ float: 'right' }}> {this.piira_ohjain_ui()} </div></p>);
     }
 
 

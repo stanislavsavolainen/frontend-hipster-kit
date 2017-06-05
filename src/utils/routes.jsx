@@ -143,7 +143,7 @@ const routeConfigs = [{
 },
 //
 {
-  path: '/TestiLuokka5', //linkki minne sivulle käyttäjä siiirtyy
+  path: '/testiluokka5', //linkki minne sivulle käyttäjä siiirtyy
   name: 'Linkki TestiLuokka5', //nagivointi palkissa linkin nimi
   component: Oma_luokka5, //muuttuja esitetään importissa
   icon: 'backup', // icon - kuva voi valita luettelosta
