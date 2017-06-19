@@ -306,7 +306,7 @@ class Luokka6B extends React.Component {
         //--------------- taulun tulostus ------------------------- 
         let map_taulu = this.state.data.map((elementti, indeksi) => {
 
-            let muokkaus_arvo = null
+            let muokkaus_arvo = null;
 
             //suorittaa poikkeuksen ja lisää ylimääräisen solu rivin muokattun datan jälkeen, mutta ennen seuraava solurivin elementtiä
             if (this.state.muokkaus_vain_kerran && indeksi === this.state.muokkaus_indeksi) {

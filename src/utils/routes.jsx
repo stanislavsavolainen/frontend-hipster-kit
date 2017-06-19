@@ -50,6 +50,11 @@ import Oma_luokka6B from '../my_modules1/MyTest6_advanced';
 import Oma_luokka7 from '../my_modules1/MyTest7';
 import Oma_luokka8 from '../my_modules1/MyTest8';
 
+import Redux_testi1 from '../my_modules1/ReduxTest1';
+
+import Chatti1 from '../my_modules1/MyChat_app1';
+
+
 /*
 
 //Testi ei toteutusta
@@ -176,6 +181,21 @@ const routeConfigs = [{
   name: 'Linkki TestiLuokka8', //nagivointi palkissa linkin nimi
   component: Oma_luokka8, //muuttuja esitetään importissa
   icon: 'pan_tool', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+{
+  path: '/reduxtesti1', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki redux testi 1', //nagivointi palkissa linkin nimi
+  component: Redux_testi1, //muuttuja esitetään importissa
+  icon: 'alarm', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+
+{
+  path: '/chat1', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki oma chatti 1', //nagivointi palkissa linkin nimi
+  component: Chatti1, //muuttuja esitetään importissa
+  icon: 'face', // icon - kuva voi valita luettelosta
   requiresLogin: false,
 }
 
