@@ -30,7 +30,7 @@ class MyChat2 extends React.Component {
     this.state = {
       joku_tieto: 'joku arvo',
       ajastin: 0,
-      kaikki_viestit: ['aaaa', 'fwefwe'],
+      kaikki_viestit: ['aaaa*rwerw*rwerw', 'fwefwe*erewr*f43f34'],
     };
   }
 
@@ -73,7 +73,9 @@ class MyChat2 extends React.Component {
               console.log(`Chat viestit : ${response}`);
 
               this.state.kaikki_viestit = response;
-              // his.state.kaikki_viestit.push(response);
+              // this.state.kaikki_viestit.splice(1, this.state.kaikki_viestit.length);
+              // this.state.kaikki_viestit.push(response);
+
 
               this.setState(this.state);
 
@@ -100,8 +102,8 @@ class MyChat2 extends React.Component {
     this.socket.onopen = (event) => {
       const socketData = event.data;
       console.log(`--------------------------------> Socket data : ${socketData}`);
-      this.state.kaikki_viestit.push(event.data); // receive message from webSocket server
-      this.setState(this.state);
+      // this.state.kaikki_viestit.push(event.data); // receive message from webSocket server
+      // this.setState(this.state);
     };
     // if WebSocket lose connection with server
     this.socket.onclose = (event) => {
@@ -192,9 +194,26 @@ class MyChat2 extends React.Component {
 
     const rows = [];
 
+   // const splitSymbol = '*';
+
+    // if (this.state.kaikki_viestit.length !== 0) {
+
+    console.log(' ************ forLoop begin ********************');
+    for (let i = 0; i < this.state.kaikki_viestit.length; i += 1) {
+      console.log(`state element ${i}: --->${this.state.kaikki_viestit[i]}`);
+    }
+    console.log(' ************ forLoop end ********************');
+
+    // =================
+
+    console.log(' ************ forEact begin ********************');
+
     this.state.kaikki_viestit.forEach((tViestit) => {
+     // if (tViestit.indexOf(splitSymbol) !== -1) {
       const elements = tViestit.split('*');
 
+      // console.log(` Elements -=-=> ${elements}`);
+      console.log(` tViestit -=-=> ${this.state.kaikki_viestit}`);
 
             /*
              rows.push(
@@ -222,7 +241,10 @@ class MyChat2 extends React.Component {
           <TableCell style={tempStyle}> {elements[2]} </TableCell>
         </TableRow>,
             );
+    //  }// end if
     });
+
+    console.log(' ************ forEact end *********************');
 
 
     return <div> <Table> <TableBody> {rows} </TableBody> </Table> </div>;
@@ -241,21 +263,22 @@ class MyChat2 extends React.Component {
   render() {
    // this.ajastin();
 
-
+     /*
     const tyyli1 = { backgroundColor: '#708090', fontSize: 18, color: 'blue' };
+
     const uiHaeViestit = (<Button
       style={tyyli1} onClick={
         () => this.haeViestitPalvelimelta()}
     > Hae viestit </Button>);
 
+
     const webSocketButton = (<Button
       style={tyyli1}
       onClick={() => this.WebSocketSendMessage()}
     > Send Message via WebSocket </Button>);
-
-    return (<p> 1234567890 <br /> {this.state.joku_tieto} <br />
-      <br /> {uiHaeViestit} <br /> <br /> <br />
-      <div> {this.tulostaData()} <br /> {this.tulostaData2()} <br /> {webSocketButton} </div> </p>);
+  */
+    return (<p><br />
+      <div>{this.tulostaData2()} <br /> </div> </p>);
   }
 
 
