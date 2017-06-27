@@ -54,6 +54,7 @@ import Redux_testi1 from '../my_modules1/ReduxTest1';
 
 import Chatti1 from '../my_modules1/MyChat_app1';
 
+import Chatti2 from '../my_modules1/MyChat_app2';
 
 /*
 
@@ -197,7 +198,16 @@ const routeConfigs = [{
   component: Chatti1, //muuttuja esitetään importissa
   icon: 'face', // icon - kuva voi valita luettelosta
   requiresLogin: false,
-}
+},
+
+{
+  path: '/chat2', //linkki minne sivulle käyttäjä siiirtyy
+  name: 'Linkki oma chatti 2', //nagivointi palkissa linkin nimi
+  component: Chatti2, //muuttuja esitetään importissa
+  icon: 'face', // icon - kuva voi valita luettelosta
+  requiresLogin: false,
+},
+
 
 
 

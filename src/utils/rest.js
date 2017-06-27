@@ -42,7 +42,7 @@ const rest = reduxApi({
     },
   },
   users: {
-    url: `${config.apiRoot}/users`,
+    url: `${config.apiRoot}/users`,    
     transformer: transformers.array,
     crud: true,
   },
